@@ -18,7 +18,6 @@ test("Navigate to Ducati website", async ({ page }) => {
 
 test("Generate Ducati images", async ({ page }) => {
 	// Arrange
-	test.setTimeout(helper.TIMEOUT);
 	await helper.navigateToPage(page);
 	await helper.startCreationProcess(page);
 
@@ -34,7 +33,6 @@ test("Generate Ducati images", async ({ page }) => {
 
 test("Fill details and download a 2056 x 1368 image", async ({ page }) => {
 	// Arrange
-	test.setTimeout(helper.TIMEOUT);
 	await helper.navigateToPage(page);
 	await helper.startCreationProcess(page);
 	await helper.generateImages(page);

@@ -2,7 +2,6 @@ import { Page } from "@playwright/test";
 import path from "path";
 
 const BASE_URL = "https://hacktheicon.scramblerducati.com/";
-export const TIMEOUT = 60000;
 
 export async function navigateToPage(page: Page) {
 	await page.goto(BASE_URL);
@@ -22,6 +21,7 @@ export async function startCreationProcess(page: Page) {
 }
 
 export async function generateImages(page: Page, text = "blue") {
+	//Text to be randomized
 	const textBox = await page.getByRole("textbox", { name: "Scrambler Ducati" });
 	const generateButton = await page.getByRole("button", {
 		name: "Generate",
@@ -65,7 +65,7 @@ export async function selectImageAndDownload(
 
 	await selectedImage.click();
 	await nextButton.click();
-	const downloadPromise = page.waitForEvent("download", { timeout: TIMEOUT });
+	const downloadPromise = page.waitForEvent("download");
 	await downloadButton.click();
 
 	const download = await downloadPromise;
